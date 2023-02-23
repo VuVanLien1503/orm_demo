@@ -2,8 +2,6 @@ package com.example.orm_demo.repository;
 
 import com.example.orm_demo.model.Classroom;
 import com.example.orm_demo.repository.extend.IClassroomRepository;
-import com.example.orm_demo.service.service_interface.ICrud;
-import com.example.orm_demo.service.service_interface.ISearch;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -42,7 +40,9 @@ public class ClassroomRepository implements IClassroomRepository {
 
     @Override
     public void delete(Classroom classroom) {
-
+        if (classroom != null) {
+            em.remove(classroom);
+        }
     }
 
     @Override

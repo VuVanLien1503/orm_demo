@@ -1,10 +1,7 @@
 package com.example.orm_demo.service.service_impl;
 
 import com.example.orm_demo.model.Classroom;
-import com.example.orm_demo.repository.ClassroomRepository;
 import com.example.orm_demo.repository.extend.IClassroomRepository;
-import com.example.orm_demo.service.service_interface.ICrud;
-import com.example.orm_demo.service.service_interface.ISearch;
 import com.example.orm_demo.service.service_interface.extend.IClassroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +29,7 @@ public class ClassroomServiceImpl implements IClassroom {
 
     @Override
     public void delete(Classroom classroom) {
-
+        classroomRepository.delete(classroom);
     }
 
     @Override

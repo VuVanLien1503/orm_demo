@@ -31,4 +31,9 @@ public class ClassroomController {
         iClassroom.save(classroom);
         return "redirect:/classrooms";
     }
+    @GetMapping(value = "/delete/{id}")
+    public String delete(@PathVariable Long id){
+        iClassroom.delete(iClassroom.findById(id));
+        return "redirect:/classrooms";
+    }
 }

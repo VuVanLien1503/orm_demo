@@ -33,17 +33,39 @@
         <tr th:each="element,stt:${classroomList}">
             <td th:text="${stt.count}"></td>
             <td th:text="${element.name}"></td>
-            <td><a class="btn btn-warning"
-                   th:href="@{/classrooms/update/__${element.id}__}">Update</a>
+            <td>
+                <a th:href="@{/classrooms/update/__${element.id}__}" class="btn btn-success">UPDATE</a>
             </td>
-            <td><a class="btn btn-danger"
-                   th:href="@{/classrooms/delete/__${element.id}__}">Delete</a>
+            <td>
+                <button type="button" class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Delete
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete-Classroom</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Bạn Có Muốn Xóa <span style="color: red" th:text="${element.name}"></span>
+                                    Không...??</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <a th:href="@{/classrooms}" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                                <a th:href="@{/classrooms/delete/__${element.id}__}" class="btn btn-danger">DELETE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-
 
 <div th:insert="/layout::footer">
 </div>

@@ -1,9 +1,8 @@
 package com.example.orm_demo.service.service_interface.extend;
 
 import com.example.orm_demo.model.Classroom;
-import com.example.orm_demo.service.service_interface.ICrud;
-import com.example.orm_demo.service.service_interface.ISearch;
-import org.springframework.stereotype.Service;
+import com.example.orm_demo.service.service_interface.ICrudRepository;
+import com.example.orm_demo.service.service_interface.ISearchRepository;
 
-public interface IClassroom extends ICrud<Classroom>, ISearch<Classroom> {
+public interface IClassroom extends ICrudRepository<Classroom>, ISearchRepository<Classroom> {
 }
